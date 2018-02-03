@@ -1,19 +1,17 @@
-![img](public/apple-icon-180x180.png)
+# **Local nodes Events**
 
-# **[TorontoJS.com](http://torontojs.com/)**
+### Add your events on google calendar and they will appear directly on your website
 
-### Add your meetup to our events feed
+(This project is a fork of the [torontojs website](torontojs/torontojs.com))
 
-If you use meetup.com to host your events, then you can create a public Google Calendar Feed with the following steps:
+To add your events to the website you need to follow these steps:
 
-1. Go to https://calendar.google.com/calendar/
-2. On the sidebar, find the menu Other Calendars and then choose Add By URL
-3. Go to your meetup home page and click the Our calendar link. 
-4. At the bottom of the page, find the iCal link and copy the address of the link. 
-5. Paste the URL in the dialog box that pops up at step 2 and also check the option to make it publically accessible. 
-6. You should now see the calendar in the sidebar. Click the arrow icon and choose the Calendar settings option.
-7. The section Calendar Address shows the unqie ID of the calendar. 
-8. Submit a PR to the [events.js](torontojs.com/blob/master/src/data/events.js) file with the ID
+1. Fork/Clone this repository
+2. Create an account to google developers and enable google calendar API
+3. Create an API key from the google developers console
+4. Create one or more calendars and grab each calendar unique ID and also check the option to make it publically accessible. 
+5. Customize with your data the [event.js](localnode-events/blob/master/src/data/events.js) file with the calendar ID and your google API Key
+6. Customize the information and appearance of the events website with your local node identity
 
 
 Built with [create-react-app](https://github.com/facebookincubator/create-react-app).
@@ -21,8 +19,8 @@ Built with [create-react-app](https://github.com/facebookincubator/create-react-
 ### Clone / Install
 
 ```
-git clone https://github.com/torontojs/torontojs.com.git
-cd torontojs.com
+git clone https://github.com/ivanminutillo/localnode-events.git
+cd localnode-events
 yarn install
 ```
 
