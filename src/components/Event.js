@@ -1,7 +1,6 @@
 import React from "react"
-import styled from 'styled-components'
-import Color from 'color'
-import theme from '../theme'
+import Calendar from './svg/Calendar'
+import Bookmark from './svg/Bookmark'
 
 const DAYS_OF_WEEK = [
   `Sunday`,
@@ -28,30 +27,7 @@ const MONTHS = [
   `December`,
 ]
 
-let Link = styled.a`
-  text-decoration: none;
-  color: ${theme.link};
-  &:hover {
-    color: ${Color(theme.link).darken(0.5).rgb().string()};
-  }
-`
-
 export default ({ event }) => {
-  let meetupName, description, url
-
-  switch (event.organizer.displayName) {
-  case `NodeSchool Toronto`:
-    meetupName = `NodeSchool`
-    description = event.description
-    url = `http://nodeschool.io/toronto/`
-    break
-  case `One-Off JavaScript Events in Toronto`:
-    [, url, meetupName, ...description] = event.description.split(`\n`)
-    break
-  default:
-    [meetupName,,, description,, url] = event.description.split(`\n`)
-  }
-
   let startDate = new Date(event.start.dateTime)
 
   let day = DAYS_OF_WEEK[startDate.getDay()]
@@ -64,20 +40,17 @@ export default ({ event }) => {
   if (minutes <= 10) {
     minutes = `0${minutes}`
   }
-
   let displayStartDate = `${day}, ${month} ${date} at ${hours}:${minutes}${AMPM}`
-
   return (
-    <div>
-      <h4>{meetupName} - {event.summary}</h4>
-      <p>{displayStartDate}</p>
-      <p>{event.location}</p>
-      <p>{description}</p>
-      <p>
-        <Link href={url} target="_blank">
-          Event Details
-        </Link>
-      </p>
+    <div className='event'>
+      <h4 className='event_summary'>
+        <span><Bookmark width='30' heigth='30' style={{ width: `30px` }} /></span>
+        {event.summary}</h4>
+      <h6 className='event_description'>{event.description}</h6>
+      <p className='event_date'>
+        <span><Calendar style={{ width: `30px` }} /></span>
+        {displayStartDate}</p>
+      <p className='event_location'>{event.location}</p>
     </div>
   )
 }

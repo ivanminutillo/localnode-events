@@ -23,10 +23,11 @@ export default
 compose(
   withState(`events`, `addEvent`, []),
   lifecycle({
-    componentDidMount() {
+    componentDidMount () {
       Object.values(eventUrls).map(async val => {
         let r = await fetch(val, { mode: `cors` })
         let { items } = await r.json()
+        console.log(items)
         this.props.addEvent(s => [
           ...s,
           ...(items || []).filter(event =>
@@ -36,18 +37,20 @@ compose(
       })
     },
   })
-)(({ events }) => (
-  <div>
-    <SectionTitle>
-      UPCOMING EVENTS
-    </SectionTitle>
-    <Card>
-      {events.map((e, i) =>
-        <div key={e.id}>
-          <Event event={e} />
-          {i < events.length - 1 && <hr />}
-        </div>
+)(({ events }) => {
+  console.log(events)
+  return (
+    <div>
+      <SectionTitle>
+    🔥🔥🔥 I prossimi eventi
+      </SectionTitle>
+      <Card>
+        {events.map((e, i) =>
+          <div key={e.id}>
+            <Event event={e} />
+            {i < events.length - 1 && <hr />}
+          </div>
       )}
-    </Card>
-  </div>
-))
+      </Card>
+    </div>
+  )})

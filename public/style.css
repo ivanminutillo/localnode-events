@@ -1,0 +1,55 @@
+.event_summary {
+    font-size: 20px;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+.event_summary span {
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+.event_description {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.event .event_date {
+    color: black;
+    background: none;
+    padding: 0;
+    text-decoration: underline;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.event_date span {
+    vertical-align: sub;
+    margin-right: 5px;
+}
+
+.event .event_location {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    background: #3480c2;
+    padding: 10px 20px;
+    border-radius: 20px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.splash_background:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    background: linear-gradient(to right, #000428, #004e92);
+    opacity: 0.7; 
+}

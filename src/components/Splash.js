@@ -4,9 +4,9 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme'
 import ReactRotatingText from './RotatingText'
-import Logo from './svg/Logo'
-import SlackIcon from './svg/SlackIcon'
-import Octocat from './svg/Octocat'
+import Bg from './png/bg.jpg'
+import Navigation from './svg/Navigation'
+
 
 let Row = styled.div`
   display: flex;
@@ -23,19 +23,16 @@ let SlackLink = styled.a`
   display: flex;
   align-items: center;
   text-decoration: none;
-`
-
-let GithubLink = styled.a`
-  color: white;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  text-decoration: none;
+  border: 1px solid #fff;
+  font-weight: 400;
+  border-radius: 2px;
+  margin-top: 10px;
+  margin-left: 10px;
 `
 
 let LinkText = styled.span`
-  font-weight: bold;
   padding-left: 10px;
+  font-size: 14px;
   transition: color 0.2s ease;
   &:hover {
     color: rgb(255, 248, 84);
@@ -58,26 +55,24 @@ let TitleContainer = styled.div`
   font-family: ${theme.fancyFont};
   color: white;
   padding: 100px 0 25px;
+  padding-top:0;
   z-index: 1;
   position: relative;
   letter-spacing: 4px;
 `
 
 let Container = styled.div`
-  height: 80vh;
-  background-color: ${props => props.backgroundColor || theme.primary};
+  height: 300px;
+  background-image: url(${Bg});
+  background-size: cover;
   position: relative;
-`
-
-let Tower = styled(Logo)`
-  position: absolute;
-  bottom: 0;
-  max-width: 600px;
+  background-position: center center;
 `
 
 let Title = styled.div`
-  font-size: 35px;
+  font-size: 42px;
   margin-bottom: 10px;
+  font-weight: 500;
 `
 
 let Rotator = styled(ReactRotatingText)`
@@ -85,34 +80,24 @@ let Rotator = styled(ReactRotatingText)`
 `
 
 type Props = {
-  backgroundColor?: string,
-  page?: string,
+  backgroundColor?: string
 }
 
-export default ({ backgroundColor = theme.primary, page = `TORONTO` }: Props) => (
-  <Container backgroundColor={backgroundColor}>
+export default ({ backgroundColor = theme.primary }: Props) => (
+  <Container className='splash_background' backgroundColor={backgroundColor}>
     <Header>
-      <SlackLink href="http://slack.torontojs.com/" target="_blank">
-        <SlackIcon style={{ width: `30px` }} />
-        <LinkText>Join us on Slack</LinkText>
+      <SlackLink href="https://t.me/montealtino" target="_blank">
+        <Navigation style={{ width: `30px` }} />
+        <LinkText>Unisciti a noi su Telegram</LinkText>
       </SlackLink>
-      <GithubLink href="https://github.com/torontojs/torontojs.com" target="_blank">
-        <Octocat width="30px" />
-        <LinkText>Contribute to this site</LinkText>
-      </GithubLink>
-      <GithubLink href="https://www.youtube.com/channel/UC1samyyfqiKmOT6fq3uVO1A" target="_blank">
-        <i className="fa fa-youtube-play" style={{ fontSize: `32px` }} />
-        <LinkText>Tech Talks</LinkText>
-      </GithubLink>
     </Header>
     <InnerContainer>
       <TitleContainer>
-        <Title>{page}&nbsp;<b style={{ color: `#ffffff` }}>JS</b></Title>
+        <Title>La Riviera <br />di Ulisse <br /><i>in comune</i></Title>
         <Rotator
-          items={[`MEETUPS`, `TECH TALKS`, `WORKSHOPS`, `SOCIAL EVENTS`]}
+          items={[`SPORT`, `ASSEMBLEE`, `WORKSHOPS`, `EVENTI`]}
         />
       </TitleContainer>
-      <Tower fill={backgroundColor} />
     </InnerContainer>
   </Container>
 )
