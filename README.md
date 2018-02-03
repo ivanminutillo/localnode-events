@@ -1,6 +1,6 @@
 # **Local nodes Events**
 
-### Add your events on google calendar and show them directly on your website
+### Add your events on google calendar and they will appear directly on your website
 
 (This project is a fork of the [torontojs website](torontojs/torontojs.com))
 
